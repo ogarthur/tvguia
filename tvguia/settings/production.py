@@ -5,8 +5,9 @@ import dj_database_url
 
 
 env = os.environ.copy()
-SECRET_KEY = '02f@4%(#g42sz$0uocb)*w2kw0#&e-*vn%ay29)vi96#*)e_@l'
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
+SECRET_KEY = '02f@4%(#g42sz$0uocb)*w2kw0#&e-*vn%ay29)vi96#*)e_@l'
+
 
 DEBUG = False
 db_from_env = dj_database_url.config(conn_max_age=500)
