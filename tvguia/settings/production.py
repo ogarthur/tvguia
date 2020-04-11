@@ -14,10 +14,10 @@ DATABASES['default'].update(db_from_env)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['*','ogarthur.com','https://www.ogarthur.com/']
+ALLOWED_HOSTS = ['*',]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 try:
-    from .local import *
+    from .base_settings import *
 except ImportError:
     pass
