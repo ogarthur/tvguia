@@ -1,6 +1,6 @@
 from __future__ import absolute_import, unicode_literals
 import os
-from .settings import *
+from .base_settings import *
 import dj_database_url
 
 
@@ -14,7 +14,7 @@ DATABASES['default'].update(db_from_env)
 SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
 # Allow all host headers
-ALLOWED_HOSTS = ['https://tvguia.herokuapp.com','https://tvguia.herokuapp.com']
+ALLOWED_HOSTS = ['*','ogarthur.com','https://www.ogarthur.com/']
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 try:

@@ -1,0 +1,1 @@
+web: gunicorn tvguia.wsgi --log-file=-
