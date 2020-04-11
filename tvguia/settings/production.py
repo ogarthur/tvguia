@@ -6,7 +6,7 @@ import dj_database_url
 
 env = os.environ.copy()
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY')
-SECRET_KEY = '02f@4%(#g42sz$0uocb)*w2kw0#&e-*vn%ay29)vi96#*)e_@l'
+
 
 
 DEBUG = False
@@ -20,6 +20,6 @@ ALLOWED_HOSTS = ['*',]
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 try:
-    from .base_settings import *
+    from .local import *
 except ImportError:
     pass
