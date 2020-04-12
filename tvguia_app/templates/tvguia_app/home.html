@@ -1,0 +1,12 @@
+{% extends "tvguia_app/base.html" %}
+{% load static %}
+{% block head_css_page %}
+
+{% endblock head_css_page %}
+{% block title %}TVGUIA{% endblock title %}
+{% block content %}
+
+    {% block footer_javascript_page %}
+        <script src="{% static 'js/main.js' %}"></script>
+    {% endblock footer_javascript_page %}
+{% endblock %}
