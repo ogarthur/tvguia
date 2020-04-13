@@ -16,8 +16,14 @@
 
 .hora-card {
     font-size: 1rem !important;
-}
+    text-align: left!important;
 
+}
+.content-card{
+    text-align: left;
+    margin-left:10px;
+     color:var(--c-two);
+}
 
 .logo-tv-container {
     display: block;
@@ -29,7 +35,12 @@
     max-width: 200px;
 }
 
-.selector-hora {
-    background: var(--c-four);
-    text-align: center;
+.poster-sm img{
+    max-height: 100px;
+    max-width: 90px;
+    width:100%;
+    height: 80%;
+}
+.poster-sm{
+
 }

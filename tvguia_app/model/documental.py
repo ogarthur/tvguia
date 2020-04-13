@@ -1,4 +1,4 @@
-#-*- coding: utf-8 -*-
+# -*- coding: utf-8 -*-
 
 from django.db import models
 
@@ -11,9 +11,11 @@ class Documental(Programa):
 
     titulo = models.CharField(max_length=100, unique=True)
     descripcion = models.CharField(max_length=1000, null=True)
-    fecha = models.DateTimeField(blank=True)
     edad = models.IntegerField(default=0)
     puntuacion = models.IntegerField(null=True)
     duracion = models.IntegerField(null=True)
     imagen = models.CharField(max_length=500, null=True)
 
+
+    def __str__(self):
+        return self.titulo

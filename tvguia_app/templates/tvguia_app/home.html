@@ -9,15 +9,7 @@
 
 
     <div id="panelTv">
-        <div class="row selector-hora">
-            <div class="col-2 ">a</div>
-            <div class="col-2">a</div>
-            <div class="col-2">a</div>
-            <div class="col-2">a</div>
-            <div class="col-2">a</div>
-            <div class="col-2">a</div>
 
-        </div>
         <div class="row">
             <div class="col-2 col-md-1 logo-tv-container"><img class="logo-tv"
                                                                src="{% static 'images/iconos/tve1.webp' %}"/></div>
@@ -25,10 +17,15 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide">
                         <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
+                            <span class="col-12">00:00-02:00</span>
+                            <span class="duracion" hidden></span>
                         </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 1</span>
+
+                        <div class="content-card row">
+                            <div class="poster-sm col-lg-3 col-md-2 col-1">
+                                <img src="{% static 'images/poster/poster1.jpg'  %}">
+                            </div>
+                            <span class="col-lg-9 col-md-10 col-11">Pearl harbor</span>
                         </div>
                     </div>
                  <div class="swiper-slide">
@@ -70,7 +67,7 @@
                 <div class="swiper-pagination"></div>
             </div>
         </div>
-        <br>
+
         <div class="row">
             <div class="col-2 col-md-1 logo-tv-container"><img class="logo-tv"
                                                                src="{% static 'images/iconos/tve2.webp' %}"/></div>

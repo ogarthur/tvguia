@@ -20,5 +20,6 @@ from tvguia_app.views import views as tviews
 
 urlpatterns = [
 path('', tviews.index, name='index'),
+path('about/', tviews.about, name='about'),
     path('admin/', admin.site.urls),
 ]

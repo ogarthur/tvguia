@@ -1,0 +1,18 @@
+{% extends "tvguia_app/base.html" %}
+{% load static %}
+{% block head_css_page %}
+    <link href="{% static 'css/swiper.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/panel.css' %}" rel="stylesheet" media="screen">
+{% endblock head_css_page %}
+{% block title %}ABOUT{% endblock title %}
+{% block content %}
+
+
+    <div id="about-content">
+    <p>this page is for tv guide</p>
+
+    </div>
+    {% block footer_javascript_page %}
+    {% endblock footer_javascript_page %}
+
+{% endblock %}
