@@ -1,12 +1,145 @@
 {% extends "tvguia_app/base.html" %}
 {% load static %}
 {% block head_css_page %}
-
+    <link href="{% static 'css/swiper.min.css' %}" rel="stylesheet" media="screen">
+    <link href="{% static 'css/panel.css' %}" rel="stylesheet" media="screen">
 {% endblock head_css_page %}
 {% block title %}TVGUIA{% endblock title %}
 {% block content %}
 
+
+    <div id="panelTv">
+        <div class="row selector-hora">
+            <div class="col-2 ">a</div>
+            <div class="col-2">a</div>
+            <div class="col-2">a</div>
+            <div class="col-2">a</div>
+            <div class="col-2">a</div>
+            <div class="col-2">a</div>
+
+        </div>
+        <div class="row">
+            <div class="col-2 col-md-1 logo-tv-container"><img class="logo-tv"
+                                                               src="{% static 'images/iconos/tve1.webp' %}"/></div>
+            <div class="col-10 col-md-11  swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 1</span>
+                        </div>
+                    </div>
+                 <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 2</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 3</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 4</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 5</span>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <br>
+        <div class="row">
+            <div class="col-2 col-md-1 logo-tv-container"><img class="logo-tv"
+                                                               src="{% static 'images/iconos/tve2.webp' %}"/></div>
+            <div class="col-10 col-md-11  swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 1</span>
+                        </div>
+                    </div>
+                 <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 2</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 3</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 4</span>
+                        </div>
+                    </div>
+                    <div class="swiper-slide">
+                        <div class="hora-card col-row">
+                            <span class="col-12">00:00</span>
+                        </div>
+                        <div class="content-card col-row">
+                            <span class="col-12">Slide 5</span>
+                        </div>
+                    </div>
+
+
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+
+
+    </div>
     {% block footer_javascript_page %}
         <script src="{% static 'js/main.js' %}"></script>
+        <script src="{% static 'js/swiper.min.js' %}"></script>
     {% endblock footer_javascript_page %}
+    <!-- Initialize Swiper -->
+    <script>
+        var swiper = new Swiper('.swiper-container', {
+            slidesPerView: 3,
+            spaceBetween: 30,
+            freeMode: true,
+            pagination: {
+                el: '.swiper-pagination',
+                clickable: true,
+            },
+        });
+    </script>
 {% endblock %}

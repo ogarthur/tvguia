@@ -1,0 +1,35 @@
+
+.swiper-pagination {
+    display: none;
+}
+
+.swiper-slide {
+    text-align: center;
+    font-size: 3rem;
+    background: var(--c-three);
+    color: var(--c-one);
+    /* Center slide text vertically */
+    display: block;
+    margin-right: 2px !important;
+    cursor: pointer;
+}
+
+.hora-card {
+    font-size: 1rem !important;
+}
+
+
+.logo-tv-container {
+    display: block;
+    margin: auto;
+}
+
+.logo-tv {
+    width: 100%;
+    max-width: 200px;
+}
+
+.selector-hora {
+    background: var(--c-four);
+    text-align: center;
+}
