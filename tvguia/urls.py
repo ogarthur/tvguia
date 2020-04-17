@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.conf.urls.static import static
 
 from tvguia_app.views import views as tviews
 
@@ -22,4 +24,4 @@ urlpatterns = [
 path('', tviews.index, name='index'),
 path('about/', tviews.about, name='about'),
     path('admin/', admin.site.urls),
-]
+]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

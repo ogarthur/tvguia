@@ -5,7 +5,7 @@ from django.db import models
 from .programa import Programa
 
 
-class Serie(Programa):
+class Serie(models.Model):
     class Meta:
         pass
 
@@ -16,6 +16,7 @@ class Serie(Programa):
     duracion = models.IntegerField(null=True)
     imagen = models.CharField(max_length=500, null=True)
 
+    programa_emision = models.ForeignKey(Programa, related_name='programa_serie', on_delete=models.CASCADE)
     def __str__(self):
         return self.titulo
 

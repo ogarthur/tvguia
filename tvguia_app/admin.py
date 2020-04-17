@@ -11,10 +11,13 @@ from .model.noticias import Noticias
 from .model.programa import Programa
 
 admin.site.register(Canal)
+admin.site.register(Programa)
+
+'''
 admin.site.register(Deporte)
 admin.site.register(Documental)
 admin.site.register([Serie, Episodio])
 admin.site.register(Otro)
 admin.site.register(Pelicula)
 admin.site.register(Noticias)
-admin.site.register(Programa)
+'''

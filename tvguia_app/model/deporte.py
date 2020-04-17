@@ -5,7 +5,7 @@ from django.db import models
 from .programa import Programa
 
 
-class Deporte(Programa):
+class Deporte(models.Model):
     class Meta:
         pass
 
@@ -13,6 +13,7 @@ class Deporte(Programa):
     descripcion = models.CharField(max_length=1000, null=True)
     imagen = models.CharField(max_length=500, null=True)
 
+    programa_emision = models.ForeignKey(Programa, related_name='programa_deporte', on_delete=models.CASCADE)
 
     def __str__(self):
         return self.titulo;

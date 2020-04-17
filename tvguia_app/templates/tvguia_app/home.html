@@ -1,5 +1,6 @@
 {% extends "tvguia_app/base.html" %}
 {% load static %}
+
 {% block head_css_page %}
     <link href="{% static 'css/swiper.min.css' %}" rel="stylesheet" media="screen">
     <link href="{% static 'css/panel.css' %}" rel="stylesheet" media="screen">
@@ -9,121 +10,67 @@
 
 
     <div id="panelTv">
+        {% for canal in panel %}
+            <div class="row">
+                <div class="col-2 col-md-1 logo-tv-container">
+                    <img class="logo-tv" src="{% static 'images/iconos/' %}{{ canal.icono }}"/>
+                </div>
+                <div class="col-10 col-md-11  swiper-container">
+                    <div class="swiper-wrapper">
+                        {% for programa in canal.programacion %}
 
-        <div class="row">
-            <div class="col-2 col-md-1 logo-tv-container"><img class="logo-tv"
-                                                               src="{% static 'images/iconos/tve1.webp' %}"/></div>
-            <div class="col-10 col-md-11  swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00-02:00</span>
-                            <span class="duracion" hidden></span>
-                        </div>
+                            {% if  programa.hora_fin|date:'H:i' < hora_actual %}
+                               <div class="swiper-slide tipo-{{ programa.tipo }} terminado-content">
+                                {% elif  programa.hora_inicio|date:'H:i' < hora_actual %}
+                                <div class="swiper-slide tipo-{{ programa.tipo }} current-content">
+                                {% else %}
+                                <div class="swiper-slide tipo-{{ programa.tipo }} futuro-content">
+                            {% endif %}
+                                <span class="duracion-total"  hidden>{{ programa.duracion_total }}</span>
+                                <div class="hora-card row">
+                                    <span class="col-12">{{ programa.hora_inicio|date:'H:i' }}-{{ programa.hora_fin|date:'H:i' }}</span>
+                                    {% if programa.descripcion %}
+                                        <span hidden
+                                              id={{ programa.titulo }}"-descripcion">{{ programa.descripcion }}</span>
+                                    {% else %}
+                                        <span hidden id={{ programa.titulo }}"-descripcion">No hay información</span>
+                                    {% endif %}
+                                </div>
 
-                        <div class="content-card row">
-                            <div class="poster-sm col-lg-3 col-md-2 col-1">
-                                <img src="{% static 'images/poster/poster1.jpg'  %}">
+                                <div class="content-card row">
+                                    <div class="poster-sm col-lg-3 col-md-2 col-1">
+                                        {% if  programa.imagen %}
+                                            <img src="media/poster/{{ programa.imagen }}">
+                                        {% endif %}
+                                    </div>
+                                    <span class="col-lg-9 col-md-10 col-11">{{ programa.titulo }}</span>
+                                </div>
                             </div>
-                            <span class="col-lg-9 col-md-10 col-11">Pearl harbor</span>
-                        </div>
+                        {% endfor %}
                     </div>
-                 <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 2</span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 3</span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 4</span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 5</span>
-                        </div>
-                    </div>
-
-
                 </div>
                 <!-- Add Pagination -->
                 <div class="swiper-pagination"></div>
             </div>
-        </div>
-
-        <div class="row">
-            <div class="col-2 col-md-1 logo-tv-container"><img class="logo-tv"
-                                                               src="{% static 'images/iconos/tve2.webp' %}"/></div>
-            <div class="col-10 col-md-11  swiper-container">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 1</span>
-                        </div>
-                    </div>
-                 <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 2</span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 3</span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 4</span>
-                        </div>
-                    </div>
-                    <div class="swiper-slide">
-                        <div class="hora-card col-row">
-                            <span class="col-12">00:00</span>
-                        </div>
-                        <div class="content-card col-row">
-                            <span class="col-12">Slide 5</span>
-                        </div>
-                    </div>
 
 
-                </div>
-                <!-- Add Pagination -->
-                <div class="swiper-pagination"></div>
-            </div>
-        </div>
 
-
+        {% endfor %}
     </div>
+
     {% block footer_javascript_page %}
+        <script>
+             $( document ).ready(function() {
+                $( ".swiper-slide" ).each(function() {
+                     let duracion = $( this ).find(".duracion-total").text();
+                     let anchura = (5*duracion)+"px"
+
+                     console.log(anchura)
+                     $(this).width(anchura)
+
+  });
+    });
+        </script>
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/swiper.min.js' %}"></script>
     {% endblock footer_javascript_page %}
