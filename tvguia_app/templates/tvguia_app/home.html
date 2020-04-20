@@ -12,10 +12,11 @@
     <div id="panelTv">
         {% for canal in panel %}
             <div class="row">
-                <div class="col-2 col-md-1 logo-tv-container">
+                <div class="col-sm-2 col-md-1 logo-tv-container">
                     <img class="logo-tv" src="{% static 'images/iconos/' %}{{ canal.icono }}"/>
                 </div>
-                <div class="col-10 col-md-11  swiper-container">
+                <div class="col-sm-10 col-md-11  swiper-container">
+
                     <div class="swiper-wrapper">
                         {% for programa in canal.programacion %}
 
@@ -29,21 +30,27 @@
                                 <span class="duracion-total"  hidden>{{ programa.duracion_total }}</span>
                                 <div class="hora-card row">
                                     <span class="col-12">{{ programa.hora_inicio|date:'H:i' }}-{{ programa.hora_fin|date:'H:i' }}</span>
-                                    {% if programa.descripcion %}
+
+                                </div>
+
+                                <div class="content-card row">
+                                    <div class="poster-sm col-md-2 col-sm-1">
+                                        {% if  programa.imagen %}
+                                            <img src="media/poster/{{ programa.imagen }}">
+                                        {% endif %}
+                                    </div>
+                                    <div class="col-md-10 col-sm-11">
+                                        <span >{{ programa.titulo }}</span>
+                                             {% if programa.descripcion %}
+                                                    <buton class="btn-warning btn" style="font-size:2.2rem;font-weight: bold">+info</buton>
                                         <span hidden
                                               id={{ programa.titulo }}"-descripcion">{{ programa.descripcion }}</span>
                                     {% else %}
                                         <span hidden id={{ programa.titulo }}"-descripcion">No hay información</span>
                                     {% endif %}
-                                </div>
 
-                                <div class="content-card row">
-                                    <div class="poster-sm col-lg-3 col-md-2 col-1">
-                                        {% if  programa.imagen %}
-                                            <img src="media/poster/{{ programa.imagen }}">
-                                        {% endif %}
                                     </div>
-                                    <span class="col-lg-9 col-md-10 col-11">{{ programa.titulo }}</span>
+
                                 </div>
                             </div>
                         {% endfor %}
@@ -57,20 +64,22 @@
 
         {% endfor %}
     </div>
-
-    {% block footer_javascript_page %}
         <script>
              $( document ).ready(function() {
                 $( ".swiper-slide" ).each(function() {
                      let duracion = $( this ).find(".duracion-total").text();
-                     let anchura = (5*duracion)+"px"
+                      console.log(duracion+"Min")
+                     let anchura = (duracion/10)+2+"em"
 
                      console.log(anchura)
-                     $(this).width(anchura)
+                     $(this).css("width",anchura)
+                     console.log($(this).css("width"))
 
   });
     });
         </script>
+    {% block footer_javascript_page %}
+
         <script src="{% static 'js/main.js' %}"></script>
         <script src="{% static 'js/swiper.min.js' %}"></script>
     {% endblock footer_javascript_page %}

@@ -7,4 +7,5 @@ app_name = 'tvguia_app'
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
+    path('fill/', views.fill, name='fill'),
 ]

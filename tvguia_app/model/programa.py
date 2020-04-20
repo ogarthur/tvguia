@@ -28,7 +28,7 @@ class Programa(models.Model):
     hora_fin = models.DateTimeField(blank=True)
     duracion_total = models.IntegerField(default=0)
 
-    duracion = models.IntegerField(default=0)
+
     titulo = models.CharField(max_length=100)
     descripcion = models.CharField(max_length=1000, null=True)
     edad = models.IntegerField(default=0)

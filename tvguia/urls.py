@@ -21,7 +21,8 @@ from django.conf.urls.static import static
 from tvguia_app.views import views as tviews
 
 urlpatterns = [
-path('', tviews.index, name='index'),
-path('about/', tviews.about, name='about'),
+    path('', tviews.index, name='index'),
+    path('about/', tviews.about, name='about'),
     path('admin/', admin.site.urls),
+    path('tvguia_app/', include('tvguia_app.urls')),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
